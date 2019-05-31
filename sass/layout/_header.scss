@@ -1,0 +1,16 @@
+.header {
+  height: 100vh;
+  background-color: #dddddd;
+  overflow-x: hidden;
+  border-bottom: 1px solid black;
+  .cover {
+    height: 100%;
+    width: 100%;
+    background-color: #ded3d3;
+    position: relative;
+    transition: left 0.1s linear;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
+
+  }
+}
