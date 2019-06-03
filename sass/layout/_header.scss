@@ -2,9 +2,13 @@
   height: 100vh;
   overflow-x: hidden;
   border-bottom: 1px solid black;
+  position: relative;
   .overlay {
     height: 100%;
     width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
   }
   .backgound {
     background-color: #dddddd;
