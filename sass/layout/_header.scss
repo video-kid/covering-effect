@@ -1,8 +1,11 @@
+$default-position: 30%;
+
 .header {
   height: 100vh;
   overflow-x: hidden;
   border-bottom: 1px solid black;
   position: relative;
+
   .overlay {
     height: 100%;
     width: 100%;
@@ -10,19 +13,30 @@
     top: 0;
     left: 0;
   }
-  .backgound {
-    background-color: #dddddd;
-  }
-  .cover {
-    background-color: #ded3d3;
-    position: relative;
-    transition: left 0.1s linear;
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 100%);
-  }
-  .header-content-layer {
+
+  .layer {
+    height: 100%;
+    width: 100vw;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .backgound {
+    background-color: #dddddd;
+  }
+
+  .cover {
+    background-color: #ded3d3;
+    position: relative;
+    transition: transform 0.1s linear;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
+    width: 130vw;
+    left: -$default-position;
+
+    &.layer {
+      transform: translateX($default-position);
+    }
   }
 }

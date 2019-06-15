@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$(document).ready(function () {
     let addUnit = (value, unit) => {
         return value + unit;
     };
@@ -7,19 +7,28 @@ $( document ).ready(function() {
         return addUnit(value, "%");
     };
 
-    let coverElemMover = (CoverElement, defaultCoverPos) => {
-        CoverElement.css("left", addPercentChar(defaultCoverPos));
-        let onePercentHeight = $(window).outerHeight()/100;
+    let setVelocity = (velocity) => {
+        let velocityLevel = 1;
+        if (velocity <= 1 && velocity > 0) {
+            velocityLevel = 100 / velocity;
+        }
+        return velocityLevel;
+    }
+
+
+    let coverElemMover = (CoverElement, defaultCoverPos, velocityLevel) => {
+        CoverElement.css("transform", "translateX(" + addPercentChar(defaultCoverPos) + ")");
+        let skipValue = $(window).outerHeight() / setVelocity(velocityLevel);
         $(window).scroll(() => {
             let scrollTopPos = $(window).scrollTop();
-            let currentPercent = Math.round(scrollTopPos/onePercentHeight) + defaultCoverPos;
+            let currentPercent = Math.round(scrollTopPos / skipValue) + defaultCoverPos;
             if (currentPercent <= 105) {
-                CoverElement.css("left", addPercentChar(currentPercent));
+                CoverElement.css("transform", "translateX(" + addPercentChar(currentPercent) + ")");
             }
         })
     };
 
     let defaultCoverSetting = 0;
     let headerCoverElement = $(".header > .cover");
-    coverElemMover(headerCoverElement, defaultCoverSetting);
+    coverElemMover(headerCoverElement, defaultCoverSetting, 0.4);
 });
