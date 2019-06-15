@@ -16,14 +16,14 @@ $(document).ready(function () {
     }
 
 
-    let coverElemMover = (CoverElement, defaultCoverPos, velocityLevel) => {
-        CoverElement.css("transform", "translateX(" + addPercentChar(defaultCoverPos) + ")");
+    let coverElemMover = (coverElement, defaultCoverPos, velocityLevel) => {
+        coverElement.css("transform", "translateX(" + addPercentChar(defaultCoverPos) + ")");
         let skipValue = $(window).outerHeight() / setVelocity(velocityLevel);
         $(window).scroll(() => {
             let scrollTopPos = $(window).scrollTop();
             let currentPercent = Math.round(scrollTopPos / skipValue) + defaultCoverPos;
             if (currentPercent <= 105) {
-                CoverElement.css("transform", "translateX(" + addPercentChar(currentPercent) + ")");
+                coverElement.css("transform", "translateX(" + addPercentChar(currentPercent) + ")");
             }
         })
     };
