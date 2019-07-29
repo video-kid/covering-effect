@@ -1,0 +1,62 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.header {
+  height: 100vh;
+  overflow-x: hidden;
+  border-bottom: 1px solid black;
+  position: relative;
+}
+
+.header .overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.header .layer {
+  height: 100%;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header .backgound {
+  background-color: #dddddd;
+}
+
+.header .cover {
+  background-color: #ded3d3;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.1s linear;
+  transition: -webkit-transform 0.1s linear;
+  transition: transform 0.1s linear;
+  transition: transform 0.1s linear, -webkit-transform 0.1s linear;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 15% 100%);
+  width: 130vw;
+  left: -30%;
+}
+
+.header .cover.layer {
+  -webkit-transform: translateX(30%);
+          transform: translateX(30%);
+}
+
+.main {
+  height: 100vh;
+}
+/*# sourceMappingURL=style.css.map */
